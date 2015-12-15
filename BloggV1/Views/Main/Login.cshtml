@@ -1,0 +1,75 @@
+﻿@model BloggV1.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+        <link href="~/mainstyle.css" rel="stylesheet" />
+        <script src="~/jquery-1.8.2.js"></script>
+        <script src="~/login.js"></script>
+    <title>Login</title>
+</head>
+<body>
+
+    @{ bool isLogged = ViewBag.logged;}
+<div>
+    @if (!isLogged)
+    {
+        using (Html.BeginForm("Login", "Main", FormMethod.Post))
+        {
+            <div class="wrapper">
+                <table>
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(p => p.Username, new {@Value = "Username", @class = "username", @id = "username"})
+                        </td>
+
+                        <td>
+                            @Html.TextBoxFor(p => p.Password, new {@Value = "Password", @class = "password"})
+                        </td>
+
+                        <td>
+                            <input type="submit" value="submit"/>
+                        </td>
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <td>@ViewBag.ErrorMessage</td>
+                        }
+                    </tr>
+                </table>
+
+            </div>
+
+        }
+    }
+    else
+    {
+        <div>
+            Hello @Model.FirstName @Model.LastName
+        </div>
+    }
+
+</div>
+
+<ul>
+    <li>
+        @Html.ActionLink("View all bloggs", "ReadBlogg", "Read")
+    </li>
+    @if (isLogged)
+    {
+        <li>
+            <a href="">Write a blogg</a>
+        </li>
+
+        <li>
+            @Html.ActionLink("Read your bloggs", "ReadUserBlogg", "Read", new { id = @Model.UserId }, null)
+        </li>
+    }
+</ul>
+</body>
+</html>

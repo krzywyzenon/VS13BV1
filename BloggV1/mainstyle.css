@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.username {
+    color: gray
+}
+
+.username.focused {
+    color: black
+}
+
+.password {
+    color: gray
+    
+}
+
+.password.focused {
+    color: black;
+        
+    
+}
