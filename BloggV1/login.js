@@ -15,19 +15,19 @@
     });
 
     $('#username').blur(function() {
-        $(this).addClass('username');
-        $(this).removeClass('username.focused');
         if ($(this).val() == '') {
+            $(this).addClass('username');
+            $(this).removeClass('username.focused');
             $(this).attr('value', 'Username');
         }
     });
 
     $('#Password').blur(function() {
-        $(this).addClass('password');
-        $(this).removeClass('password.focused');
         if ($(this).val() == '') {
             $(this).attr('value', 'Password');
             $(this).prop('type', 'text');
+            $(this).addClass('password');
+            $(this).removeClass('password.focused');
         }
     });
 

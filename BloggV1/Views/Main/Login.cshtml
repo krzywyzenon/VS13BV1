@@ -51,6 +51,12 @@
     {
         <div>
             Hello @Model.FirstName @Model.LastName
+
+
+            @using (Html.BeginForm("Logout", "Main", FormMethod.Post))
+            {
+                <input type="submit" value="Logout"/>
+            }
         </div>
     }
 

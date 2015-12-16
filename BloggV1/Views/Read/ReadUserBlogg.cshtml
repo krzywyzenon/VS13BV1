@@ -1,4 +1,4 @@
-﻿@model List<BloggV1.Models.Article>
+﻿@model List<BloggV1.Models.Blogg>
 
 @{
     Layout = null;
@@ -10,9 +10,28 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ReadUserBlogg</title>
+    <link href="~/readstyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
+    <div>
+
+            
+        @foreach (var blogg in Model)
+            {
+
+                <div class="blogg-entry">
+                    <p>
+                        Title: @blogg.Title Category: @blogg.CategoryName
+                    </p>
+                    <p>
+                        @blogg.Text
+                    </p>
+                    <p>
+                        Written by: @blogg.FirstName @blogg.LastName on: @blogg.Date
+                    </p>
+                </div>
+                
+            }
     </div>
 </body>
 </html>

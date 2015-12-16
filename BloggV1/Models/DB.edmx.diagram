@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="BloggV1Model.User" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <AssociationConnector Association="BloggV1Model.FK_Articles_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="BloggV1Model.FK_Articles_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BloggV1Model.Blogg" Width="1.5" PointX="5.125" PointY="2.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

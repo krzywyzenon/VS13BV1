@@ -12,23 +12,23 @@ namespace BloggV1.Controllers
         // GET: Read
         public ActionResult ReadBlogg()
         {
-            List<Article> articles;
+            List<Blogg> bloggs;
             using (BloggV1Connection db = new BloggV1Connection())
             {
-                articles = db.Articles.ToList();
+                bloggs = db.Bloggs.ToList();
             }
-            return View(articles);
+            return View(bloggs);
         }
 
 
         public ActionResult ReadUserBlogg(int id)
         {
-            List<Article> articles = new List<Article>();
+            List<Blogg> bloggs = new List<Blogg>();
             using (BloggV1Connection db = new BloggV1Connection())
             {
-                articles = db.Articles.Where(x => x.UserId == id).ToList();
+                bloggs = db.Bloggs.Where(x => x.UserId == id).ToList(); //TODO UPdatenac view zeby zawieralo id i stad kurwa mac
             }
-            return View(articles);
+            return View(bloggs);
         }
 
         

@@ -47,5 +47,10 @@ namespace BloggV1.Controllers
                 return View(); 
             }
         }
+
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login");
+        }
     }
 }

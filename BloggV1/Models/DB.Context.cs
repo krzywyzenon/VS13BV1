@@ -6,7 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-/*
+
 namespace BloggV1.Models
 {
     using System;
@@ -28,6 +28,6 @@ namespace BloggV1.Models
         public virtual DbSet<Article> Articles { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Blogg> Bloggs { get; set; }
     }
 }
-*/
