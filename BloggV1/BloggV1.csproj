@@ -93,13 +93,17 @@
     <Content Include="jquery-1.8.2.js" />
     <Content Include="login.js" />
     <Content Include="mainstyle.css" />
+    <Content Include="readblogg.js" />
     <Content Include="readstyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Checking.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ReadController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\WriteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -122,6 +126,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchCategoryModel.cs" />
     <Compile Include="Models\User.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +145,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WriteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +170,6 @@
     </Content>
     <Content Include="Views\Main\Login.cshtml" />
     <Content Include="Views\Read\ReadBlogg.cshtml" />
-    <Content Include="Views\Read\ReadUserBlogg.cshtml" />
     <Content Include="Models\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DB.Context.cs</LastGenOutput>
@@ -175,6 +180,11 @@
       <LastGenOutput>DB.cs</LastGenOutput>
       <DependentUpon>DB.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Write\WriteBlogg.cshtml" />
+    <Content Include="Views\Main\LoggedIn.cshtml" />
+    <Content Include="Views\Search\SearchByTitle.cshtml" />
+    <Content Include="Views\Search\SearchByCategory.cshtml" />
+    <Content Include="Views\Read\ReadSingleBlogg.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -63,18 +63,25 @@
 </div>
 
 <ul>
+    
     <li>
         @Html.ActionLink("View all bloggs", "ReadBlogg", "Read")
     </li>
+
+    <li>
+        @Html.ActionLink("Search bloggs by category", "SearchByCategory", "Search")
+    </li>
+
+    <li>
+        @Html.ActionLink("Search bloggs by title", "SearchByTitle", "Search")
+    </li>
+
     @if (isLogged)
     {
         <li>
-            <a href="">Write a blogg</a>
+            @Html.ActionLink("Write a blogg entry", "WriteBlogg", "Write", new {id = @Model.UserId}, null)
         </li>
 
-        <li>
-            @Html.ActionLink("Read your bloggs", "ReadUserBlogg", "Read", new { id = @Model.UserId }, null)
-        </li>
     }
 </ul>
 </body>

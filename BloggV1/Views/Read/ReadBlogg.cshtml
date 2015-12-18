@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>ReadBlogg</title>
     <link href="~/readstyle.css" rel="stylesheet" />
+    <script src="~/jquery-1.8.2.js"></script>
+    <script src="~/readblogg.js"></script>
 </head>
 <body>
 <div>
@@ -18,17 +20,21 @@
 
         @foreach (var blogg in Model)
         {
-            <div class="blogg-entry">
-                <p>
-                    Title: @blogg.Title Category: @blogg.CategoryName
-                </p>
-                <p>
-                    @blogg.Text
-                </p>
-                <p>
-                    Written by: @blogg.FirstName @blogg.LastName on: @blogg.Date
-                </p>
-            </div>
+            using (Html.BeginForm("ReadSingleBlogg", "Read", new {@class = "this-blogg", @Id = @blogg.ArticleId}))
+            {
+                
+                    <div class="blogg-entry">
+                        <p>
+                            Title: @blogg.Title Category: @blogg.CategoryName
+                        </p>
+                        <p>
+                            Written by: @blogg.FirstName @blogg.LastName on: @blogg.Date
+                        </p>
+
+                            <input type ="hidden" name ="articleId" value=@blogg.ArticleId/>
+                    </div>
+            }
+                
         }
     
 </div>

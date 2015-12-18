@@ -1,0 +1,31 @@
+﻿@model BloggV1.Models.Blogg
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ReadSingleBlogg</title>
+    <link href="~/readstyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="blogg-entry">
+            <p>
+                Title: @Model.Title Category: @Model.CategoryName
+            </p>
+            <p>
+                @Model.Text
+            </p>
+            <p>
+                Written by: @Model.FirstName @Model.LastName on: @Model.Date
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>
