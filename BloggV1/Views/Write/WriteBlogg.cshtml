@@ -1,0 +1,61 @@
+﻿@model BloggV1.Models.WriteModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WriteBlogg</title>
+</head>
+<body>
+
+    <div>
+        @using (Html.BeginForm("WriteBlogg", "Write", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.HiddenFor(p => p.article.UserId, new {@Value = Model.user.UserId})
+                    </td>
+                    <td>
+                        @Html.HiddenFor(p => p.article.Date, new {@Value = DateTime.Now})
+                    </td>
+                    
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownListFor(x=>x.article.CategoryId, Model.categories)
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Title:
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.article.Title)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Text: </td>
+                    <td>
+                        @Html.TextAreaFor(p => p.article.Text)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit"/>
+                    </td>
+                </tr>
+            </table>
+            
+        }
+    </div>
+</body>
+</html>

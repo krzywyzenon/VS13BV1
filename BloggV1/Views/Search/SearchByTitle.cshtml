@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchByTitle</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("SearchByTitle", "Search", FormMethod.Post))
+        {
+            <tr>
+                <td>
+                    <input name="title" type="text"/>
+                </td>
+                <td>
+                    <input type="submit" value="search"/>
+                </td>
+            </tr>
+        }
+    </div>
+</body>
+</html>

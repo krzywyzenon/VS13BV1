@@ -1,0 +1,50 @@
+﻿@model BloggV1.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoggedIn</title>
+</head>
+<body>
+<div>
+    <div>
+        Hello @Model.FirstName @Model.LastName
+
+
+        @using (Html.BeginForm("Logout", "Main", FormMethod.Post))
+        {
+            <input type="submit" value="Logout" />
+        }
+    </div>
+
+    <ul>
+        <li>
+            @Html.ActionLink("View all bloggs", "ReadBlogg", "Read")
+        </li>
+
+        <li>
+            @Html.ActionLink("Write a blogg entry", "WriteBlogg", "Write", new {id = @Model.UserId}, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Read your bloggs", "ReadBlogg", "Read", new {userId = @Model.UserId, searchCriteria = "user"}, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Search bloggs by category", "SearchByCategory", "Search")
+        </li>
+
+        <li>
+            @Html.ActionLink("Search bloggs by title", "SearchByTitle", "Search")
+        </li>
+
+    </ul>
+</div>
+</body>
+</html>
