@@ -44,6 +44,8 @@ namespace BloggV1.Controllers
                 ViewBag.logged = true;
                 ViewBag.test = u.Username;
                 Checking.IsAuthorized(true);
+                Checking.IsLoggedin(true);
+                Checking.UserId(id);
                 return RedirectToAction("LoggedIn", new{id = id});
             }
             else
@@ -57,6 +59,8 @@ namespace BloggV1.Controllers
         public ActionResult Logout()
         {
             Checking.IsAuthorized(false);
+            Checking.IsLoggedin(false);
+            Checking.UserId(-1);
             return RedirectToAction("Login");
         }
 

@@ -1,4 +1,5 @@
-﻿@model List<BloggV1.Models.Blogg>
+﻿@using BloggV1.Controllers
+@model List<BloggV1.Models.Blogg>
 
 @{
     Layout = null;
@@ -36,7 +37,19 @@
             }
                 
         }
-    
+
+        @if (Checking.IsLoggedin())
+        {
+                
+            Checking.IsAuthorized(true);
+            @Html.ActionLink("Start", "LoggedIn", "Main", new{@id = Checking.UserId()}, null)    
+        }
+        else
+        {
+            @Html.ActionLink("Start", "Login", "Main")
+        }
+        
+
 </div>
 </body>
 </html>

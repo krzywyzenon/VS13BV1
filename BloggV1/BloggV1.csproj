@@ -96,6 +96,7 @@
     <Content Include="readblogg.js" />
     <Content Include="readstyle.css" />
     <Content Include="Web.config" />
+    <Content Include="writescript.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

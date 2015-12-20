@@ -10,6 +10,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>WriteBlogg</title>
+    <script src="~/jquery-1.8.2.js"></script>
+    <script src="~/writescript.js"></script>
 </head>
 <body>
 
@@ -24,13 +26,16 @@
                     <td>
                         @Html.HiddenFor(p => p.article.Date, new {@Value = DateTime.Now})
                     </td>
-                    
+
 
                 </tr>
                 <tr>
                     <td>
-                        @Html.DropDownListFor(x=>x.article.CategoryId, Model.categories)
-                        
+                        Category:
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(x => x.article.CategoryId, Model.categories)
+
                     </td>
                 </tr>
                 <tr>
@@ -38,14 +43,21 @@
                         Title:
                     </td>
                     <td>
-                        @Html.TextBoxFor(m => m.article.Title)
+                        @Html.TextBoxFor(m => m.article.Title, new {@id = "articleTitle"})
+                    </td>
+                    <td>
+                        Characters remaining:
+                        <div id="titleChars">50</div>
                     </td>
                 </tr>
 
                 <tr>
                     <td>Text: </td>
                     <td>
-                        @Html.TextAreaFor(p => p.article.Text)
+                        @Html.TextAreaFor(p => p.article.Text, new {@id = "articleText"})
+                    </td>
+                    <td>
+                        Characters remaining: <div id="charNum">2000</div>
                     </td>
                 </tr>
                 <tr>
