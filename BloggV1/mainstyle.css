@@ -1,4 +1,5 @@
 ﻿body {
+    background-color: cornflowerblue;
 }
 
 .username {
@@ -17,5 +18,39 @@
 .password.focused {
     color: black;
         
-    
+  }
+
+.loginForm {
+    float: right;
+}
+
+.menuItem {
+    float: left;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.wrapper {
+    height: 40px;
+}
+
+#errorMessage {
+    width: 160px;
+    color: red;
+}
+
+.wrapper {
+    background-color: darkblue;
+}
+
+a {
+    color: azure;
+}
+
+a:visited {
+    color: cadetblue;
+}
+
+.greeting {
+    color: darkorange;
 }

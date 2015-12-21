@@ -1,4 +1,5 @@
-﻿
+﻿@using BloggV1.Controllers
+
 @{
     Layout = null;
 }
@@ -9,20 +10,33 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>SearchByTitle</title>
+    <link href="~/searchstyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @using (Html.BeginForm("SearchByTitle", "Search", FormMethod.Post))
+    <div class="wrapper">
+        @if (Checking.IsLoggedin())
         {
-            <tr>
-                <td>
-                    <input name="title" type="text"/>
-                </td>
-                <td>
-                    <input type="submit" value="search"/>
-                </td>
-            </tr>
+
+            Checking.IsAuthorized(true);
+            @Html.ActionLink("Main Panel", "LoggedIn", "Main", new { @id = Checking.UserId() }, null)
+        }
+        else
+        {
+            @Html.ActionLink("Main Panel", "Login", "Main")
         }
     </div>
+<div>
+    @using (Html.BeginForm("SearchByTitle", "Search", FormMethod.Post))
+    {
+        <tr>
+            <td>
+                <input name="title" type="text"/>
+            </td>
+            <td>
+                <input type="submit" value="search"/>
+            </td>
+        </tr>
+    }
+</div>
 </body>
 </html>

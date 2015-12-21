@@ -1,0 +1,42 @@
+﻿body {
+    background-color: cornflowerblue;
+}
+
+#bloggWritingForm {
+    left: 20%;
+    position: relative;
+}
+
+.label {
+    width: 120px;
+    vertical-align: top;
+}
+
+.dataInput {
+    width: 400px;
+}
+
+.bloggText {
+    height: 550px;
+}
+
+.charCount {
+    display: inline-block;
+}
+
+.charCountTd {
+    vertical-align: bottom;
+    font-size: small;    
+}
+
+.wrapper {
+    background-color: darkblue;
+}
+
+a {
+    color: azure;
+}
+
+a:visited {
+    color: cadetblue;
+}

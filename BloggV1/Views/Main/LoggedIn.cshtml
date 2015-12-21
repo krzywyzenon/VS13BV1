@@ -10,41 +10,56 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>LoggedIn</title>
+    <link href="~/mainstyle.css" rel="stylesheet" />
 </head>
 <body>
-<div>
+<div class="wrapper">
     <div>
-        Hello @Model.FirstName @Model.LastName
+
+        <table class="loginForm">
+            <tr>
+                <td class="greeting">
+
+                    Hello @Model.FirstName @Model.LastName
 
 
-        @using (Html.BeginForm("Logout", "Main", FormMethod.Post))
-        {
-            <input type="submit" value="Logout" />
-        }
+                </td>
+
+                <td>
+
+                    @using (Html.BeginForm("Logout", "Main", FormMethod.Post))
+                    {
+                        <input type="submit" value="Logout"/>
+                    }
+                </td>
+
+            </tr>
+        </table>
     </div>
 
     <ul>
-        <li>
+        <li class="menuItem">
             @Html.ActionLink("View all bloggs", "ReadBlogg", "Read")
         </li>
 
-        <li>
+        <li class="menuItem">
             @Html.ActionLink("Write a blogg entry", "WriteBlogg", "Write", new {id = @Model.UserId}, null)
         </li>
 
-        <li>
+        <li class="menuItem">
             @Html.ActionLink("Read your bloggs", "ReadBlogg", "Read", new {userId = @Model.UserId, searchCriteria = "user"}, null)
         </li>
 
-        <li>
+        <li class="menuItem">
             @Html.ActionLink("Search bloggs by category", "SearchByCategory", "Search")
         </li>
 
-        <li>
+        <li class="menuItem">
             @Html.ActionLink("Search bloggs by title", "SearchByTitle", "Search")
         </li>
 
     </ul>
 </div>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
-﻿@model BloggV1.Models.Blogg
+﻿@using BloggV1.Controllers
+@model BloggV1.Models.Blogg
 
 @{
     Layout = null;
@@ -13,19 +14,31 @@
     <link href="~/readstyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        <div class="blogg-entry">
-            <p>
-                Title: @Model.Title Category: @Model.CategoryName
-            </p>
-            <p>
-                @Model.Text
-            </p>
-            <p>
-                Written by: @Model.FirstName @Model.LastName on: @Model.Date
-            </p>
+    <div class="wrapper">
+        @if (Checking.IsLoggedin())
+        {
 
-        </div>
+            Checking.IsAuthorized(true);
+            @Html.ActionLink("Main Panel", "LoggedIn", "Main", new { @id = Checking.UserId() }, null)
+        }
+        else
+        {
+            @Html.ActionLink("Main Panel", "Login", "Main")
+        }
     </div>
+<div>
+    <div class="blogg-entry">
+        <p>
+            Title: @Model.Title Category: @Model.CategoryName
+        </p>
+        <pre class="articleText">
+                @Model.Text
+            </pre>
+        <p>
+            Written by: @Model.FirstName @Model.LastName on: @Model.Date
+        </p>
+
+    </div>
+</div>
 </body>
 </html>

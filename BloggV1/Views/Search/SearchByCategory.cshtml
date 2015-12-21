@@ -1,4 +1,5 @@
-﻿@model BloggV1.Models.SearchCategoryModel
+﻿@using BloggV1.Controllers
+@model BloggV1.Models.SearchCategoryModel
 
 @{
     Layout = null;
@@ -10,26 +11,39 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>SearchByCategory</title>
+    <link href="~/searchstyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @using (Html.BeginForm("SearchByCategory", "Search", FormMethod.Post))
+    <div class="wrapper">
+        @if (Checking.IsLoggedin())
         {
-            <table>
-                <tr>
-                    <td>
-                        @Html.DropDownListFor(x => x.Id, Model.categories)
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="submit" />
-                    </td>
-                </tr>
-            </table>
-
+            Checking.IsAuthorized(true);
+            @Html.ActionLink("Main Panel", "LoggedIn", "Main", new { @id = Checking.UserId() }, null)
+        }
+        else
+        {
+            @Html.ActionLink("Main Panel", "Login", "Main")
         }
     </div>
+<div>
+    @using (Html.BeginForm("SearchByCategory", "Search", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    @Html.DropDownListFor(x => x.Id, Model.categories)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="submit"/>
+                </td>
+            </tr>
+        </table>
+
+    }
+</div>
 </body>
 </html>

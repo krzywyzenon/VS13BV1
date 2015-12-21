@@ -20,20 +20,20 @@ namespace BloggV1.Controllers
                 switch (searchCriteria)
                 {
                     case "category":
-                        bloggs = db.Bloggs.Where(x => x.CategoryId == categoryId).ToList();
+                        bloggs = db.Bloggs.Where(x => x.CategoryId == categoryId).OrderByDescending(x=>x.Date).ToList();
                         break;
 
                     case "user":
-                        bloggs = db.Bloggs.Where(x => x.UserId == userId).ToList(); //TODO UPdatenac view zeby zawieralo id i stad kurwa mac
+                        bloggs = db.Bloggs.Where(x => x.UserId == userId).OrderByDescending(x => x.Date).ToList(); 
                         break;
 
                     case "title":
-                        bloggs = db.Bloggs.Where(x => x.Title.Contains(bloggTitle)).ToList();
+                        bloggs = db.Bloggs.Where(x => x.Title.Contains(bloggTitle)).OrderByDescending(x => x.Date).ToList();
                         int f = 2;
                         break;
 
                     default:
-                        bloggs = db.Bloggs.ToList();
+                        bloggs = db.Bloggs.OrderByDescending(x => x.Date).ToList();
                         break;
                 }
             }

@@ -1,4 +1,5 @@
 ﻿body {
+    background-color: cornflowerblue;
 }
 
 .blogg-entry {
@@ -8,3 +9,19 @@
     margin-bottom: 80px;
 }
 
+.articleText {
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+.wrapper {
+    background-color: darkblue;
+}
+
+a {
+    color: azure;
+}
+
+a:visited {
+    color: cadetblue;
+}

@@ -16,39 +16,42 @@
     <script src="~/readblogg.js"></script>
 </head>
 <body>
+
+<div class="wrapper">
+    @if (Checking.IsLoggedin())
+    {
+
+        Checking.IsAuthorized(true);
+        @Html.ActionLink("Main Panel", "LoggedIn", "Main", new { @id = Checking.UserId() }, null)
+    }
+    else
+    {
+        @Html.ActionLink("Main Panel", "Login", "Main")
+    }
+</div>
 <div>
-    
 
-        @foreach (var blogg in Model)
+
+    @foreach (var blogg in Model)
+    {
+        using (Html.BeginForm("ReadSingleBlogg", "Read", new {@class = "this-blogg", @Id = @blogg.ArticleId}))
         {
-            using (Html.BeginForm("ReadSingleBlogg", "Read", new {@class = "this-blogg", @Id = @blogg.ArticleId}))
-            {
-                
-                    <div class="blogg-entry">
-                        <p>
-                            Title: @blogg.Title Category: @blogg.CategoryName
-                        </p>
-                        <p>
-                            Written by: @blogg.FirstName @blogg.LastName on: @blogg.Date
-                        </p>
 
-                            <input type ="hidden" name ="articleId" value=@blogg.ArticleId/>
-                    </div>
-            }
-                
+            <div class="blogg-entry">
+                <p>
+                    Title: @blogg.Title Category: @blogg.CategoryName
+                </p>
+                <p>
+                    Written by: @blogg.FirstName @blogg.LastName on: @blogg.Date
+                </p>
+
+                <input type="hidden" name="articleId" value=@blogg.ArticleId/>
+            </div>
         }
 
-        @if (Checking.IsLoggedin())
-        {
-                
-            Checking.IsAuthorized(true);
-            @Html.ActionLink("Start", "LoggedIn", "Main", new{@id = Checking.UserId()}, null)    
-        }
-        else
-        {
-            @Html.ActionLink("Start", "Login", "Main")
-        }
-        
+    }
+
+
 
 </div>
 </body>

@@ -1,0 +1,15 @@
+﻿body {
+    background-color: cornflowerblue;
+}
+
+.wrapper {
+    background-color: darkblue;
+}
+
+a {
+    color: azure;
+}
+
+a:visited {
+    color: cadetblue;
+}
